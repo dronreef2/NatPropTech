@@ -1,0 +1,126 @@
+Technical guide: Four steps for startups to build multi-agent systems
+November 13, 2025
+Oluwamayowa Awojuyigbe
+Customer Engineer, Google Cloud
+
+Try Gemini 2.5
+Our most intelligent model is now available on Vertex AI
+
+Try now
+AI agents are transforming the nature of work by automating complex workflows with speed, scale, and accuracy.  At the same time, startups are constantly moving, growing, and evolving – which means they need clear ways to implement agentic workflows, not piles of documentation that send precious resources into a tailspin.
+
+Today, we’ll share a simple four-step framework to help startups build multi-agent systems.  Multi-agentic workflows can be complicated, but there are easy ways to get started and see real gains without spending weeks in production. 
+
+In this post, we’ll show you a systematic, operations-driven roadmap for navigating this new landscape, using one of our projects to provide concrete examples for the concepts laid out in the official Startups technical guide: AI agents.
+
+Step #1: Build your foundation 
+The startups technical guide outlines three primary paths for leveraging agents:
+
+Pre-built Google agents
+
+Partner agents
+
+Custom-built agents (agents you build on your own).
+
+To build our Sales Intelligence Agent, we needed to automate a highly specific, multi-step workflow that involved our own proprietary logic and would eventually connect to our own data sources. This required comprehensive orchestration control and tool definition that only a "code-first" approach could provide.
+
+That’s why we chose Google's Agent Development Kit (ADK) as our framework. It offered the balance of power and flexibility necessary to build a truly custom, defensible system, combined with high-level abstractions for agent composition and orchestration that accelerated our development.
+
+Step #2: Build out the engine 
+We took a hybrid approach when building our agent architecture, which is managed by a top-level root_agent in orchestrator.py. Its primary role is to act as an intelligent controller using an LLM Agent for flexible user interaction, while delegating the core processing loop to [more deterministic ADK components like LoopAgent and custom BaseAgent classes.
+
+Conversational onboarding: The LLM Agent starts by acting as a conversational "front-door," interacting with the user to collect their name and email.
+
+Workflow delegation: Once it has the user's information, it delegates the main workflow to a powerful LoopAgent defined in its sub_agents list.
+
+Data loading: The first step inside the LoopAgent is a custom agent called the CompanyLoopController. On the very first iteration of the loop, its job is to call our crm_tool to fetch the list of companies from the Google Sheet and load them into the session state.
+
+Tool-based execution in a loop:  The loop processes each company by calling two key tools: the research_pipeline tool that encapsulates our complex company_researcher_agent and the sales_briefing_agent tool  that encapsulates the sales_briefing_agent. This "Agent-as-a-Tool" pattern is crucial for state isolation (more in Step 3).
+
+This hybrid pattern gives us the best of both worlds: the flexibility of an LLM for user interaction and the structured, reliable control of a workflow agent with isolated, tool-based execution. 
+
+Step #3: Tools, state, and reliability
+An agent is only as powerful as the tools it can wield. To be truly useful, our system needed to connect to live data, not just a static local file. To achieve this, we built a custom tool, crm_tool.py, to allow our agent to read its list of target companies directly from a Google Sheet.
+
+To build our read_companies_from_sheet function, we focused on two key areas:
+
+Secure authentication: We used a Google Cloud Service Account for authentication, a best practice for production systems. Our code includes a helper function, get_sheets_service(), that centralizes all the logic for securely loading the service account credentials and initializing the API client.
+
+Configuration management: All configuration, including the SPREADSHEET_ID, is managed via our .env file. This decouples the tool's logic from its configuration, making it portable and secure.
+
+This approach transformed our agent from one that could only work with local data to one that could securely interact with a live, cloud-based source of truth.
+
+Managing state in loops: The "Agent-as-a-Tool" Pattern A critical challenge in looping workflows is ensuring state isolation between iterations. ADK's session.state persists, which can cause 'context rot' if not managed. Our solution was the "Agent-as-a-Tool" pattern. Instead of running the complex company_researcher_agent directly in the loop, we encapsulated its entire SequentialAgent pipeline into a single, isolated AgentTool (company_researcher_agent_tool).
+
+Every time the loop calls this tool, the ADK provides a clean, temporary context for its execution. All internal steps (planning, QA loop, compiling) happen within this isolated context. When the tool returns the final compiled_report, the temporary context is discarded, guaranteeing a fresh start for the next company. This pattern provides perfect state isolation by design, making the loop robust without manual cleanup logic.
+
+Step #4: Go from Localhost to a scalable deployed product 
+Here is our recommended three-step blueprint for moving from a local prototype to a production-ready agent on Google Cloud.
+
+1. Adopt a production-grade project template
+Our most critical lesson was that a simple, local-first project structure is not built for the rigors of the cloud. The turning point for our team was adopting Google's official Agent Starter Pack. This professional template is not just a suggestion; for any serious project, we now consider it a requirement. It provides three non-negotiable foundations for success out of the box:
+
+Robust dependency management: It replaces the simplicity of local tools like Poetry with the production-grade power of PDM and uv, ensuring that every dependency is locked and every deployment is built from a fast, deterministic, and repeatable environment.
+
+A pre-configured CI/CD pipeline: It comes with a ready-to-use continuous integration and deployment pipeline for Google Cloud Build, which automates the entire process of testing, building, and deploying your agent.
+
+Multi-environment support: The template is pre-configured for separate staging and production environments, a best practice that allows you to safely test changes in an isolated staging environment before promoting them to your live users.
+
+The process begins by using the official command-line tool to generate your project's local file structure. This prompts you to choose a base template; we used the "ADK Base Template" and then moved our agent logic into the newly created source code files ( App) .
+
+# Ensure pipx is installed
+pip install --user pipx
+​
+# Run the project generator to create the local file structure
+pipx run agent-starter-pack create your-new-agent-project
+The final professional project structure:
+
+final-agent-project/
+├── .github/              # Contains the automated CI/CD workflow configuration
+│   └── workflows/
+├── app/                  # Core application source code for the agent
+│   ├── __init__.py
+│   ├── agent_engine_app.py
+│   ├── orchestrator.py     # The main agent that directs the workflow
+│   ├── company_researcher/ # Sub-agent for performing research
+│   ├── briefing_agent/   # Sub-agent for drafting emails
+│   └── tools/              # Custom tools the agents can use
+├── tests/                # Automated tests for your agent
+├── .env                  # Local environment variables (excluded from git)
+├── pyproject.toml        # Project definition and dependencies
+└── uv.lock               # Locked dependency versions for speed and consistency
+With the local files created, the next step is to provision the cloud infrastructure. From inside the new project directory, you run the setup-cicd command. This interactive wizard connects to your Google Cloud and GitHub accounts, then uses Terraform under the hood to automatically build your entire cloud environment, including the CI/CD pipeline.
+
+# Navigate into your new project directory
+cd your-new-agent-project
+​
+# Run the interactive CI/CD setup wizard
+pipx run agent-starter-pack setup-cicd
+2. Cloud Build 
+Once the setup is complete with the starter pack, your development workflow becomes incredibly simple. Every time a developer pushes a new commit to the main branch of your GitHub repository:
+
+Google Cloud Build fetches your latest code.
+
+It builds your agent into a secure, portable container image. This process includes installing all the dependencies from your uv.lock file, guaranteeing a perfect, repeatable build every single time.
+
+It deploys this new version to your staging environment. Within minutes, your latest code is live and ready for testing in a real cloud environment.
+
+It waits for your approval. The pipeline is configured to require a manual "Approve" click in the Cloud Build console before it will deploy that exact same, tested version to your production environment. This gives you the perfect balance of automation and control.
+
+3. Deploy on Agent Engine and Cloud Run 
+The final piece of the puzzle is where the agent actually runs. Cloud Build deploys your agent to Vertex AI Agent Engine, which provides the secure, public endpoint and management layer for your agent.
+
+Crucially, Agent Engine is built on top of Google Cloud Run, a powerful serverless platform. This means you don't have to manage any servers yourself. Your agent automatically scales up to handle thousands of users, and scales down to zero when not in use, meaning you only pay for the compute you actually consume. 
+
+Get started 
+Ready to build your own?
+
+Explore the code for our Sales Intelligence Agent on GitHub.
+
+Dive deeper with the Startups technical guide: AI agents.
+
+Get started with production deployments using the Agent Starter Pack.
+
+No matter where you are with AI adoption, we are here to help. Contact our Startup team today and you could get up to $350,000 USD in cloud credits with the Google for Startups Cloud Program,
+
+The technical journey and insights detailed in this blog post were the result of a true team effort. I want to extend my sincere appreciation to the core collaborators whose work provided the foundation for this article: Luis Sala, Isaac Attuah, Ishana Shinde, Andrew Thankson, and Kristin Kim. Their hands-on contributions to architecting and building the agent were essential to the lessons shared here.

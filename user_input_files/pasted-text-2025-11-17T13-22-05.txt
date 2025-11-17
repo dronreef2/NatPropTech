@@ -1,0 +1,145 @@
+How Google Cloud’s AI tech stack powers today’s startups
+September 18, 2025
+https://storage.googleapis.com/gweb-cloudblog-publish/images/builders-forum-startups-event-ai-momentum-.max-2500x2500_i54lEH8.png
+Darren Mowry
+VP, Global Startups, Google Cloud
+
+Try Gemini 2.5
+Our most intelligent model is now available on Vertex AI
+
+Try now
+AI has accelerated startup innovation more than any technology since perhaps the internet itself, and we’ve been fortunate to have a front row seat to much of this innovation here at Google Cloud. Nine of the top ten AI labs use Google Cloud, as does nearly every AI unicorn and more than 60% of the world’s gen AI startups overall.
+
+And the trend of AI startups choosing us is accelerating. For example, we’ve seen more than a 20% increase over the past year in the number of newer AI Startups (those who recently raised a Series A or B round) choosing to use Google Cloud.
+
+These startups are building with our differentiated AI stack, which offers leading technology and choice at every layer, including a variety of TPU and GPU specialized chips for compute, and a broad range of models that excel at coding, image and video generation, collaboration, and more.
+
+Today, we’re hosting our first-ever Google's AI Builders Forum, bringing hundreds of startup founders, and builders together in the heart of Silicon Valley to hear about how Google’s AI, infrastructure, and services, as well as our unique resources to support startups’ growth, can help them build.
+
+To further that support, and help startups jumpstart work in the exciting realm of AI agents, we’ve just published our Startup technical guide: AI agents. It’s an in-depth collection of best practices and step-by-step guidance for building and scaling agentic AI, so you can get from idea to production faster. It also covers core agentic concepts like RAG and multimodality, and how to leverage Google Cloud’s agentic offerings, like ADK and A2A.
+
+We’re also excited to announce momentum with dozens of startup customers who are building platforms, products, and entire businesses on Google Cloud, including:
+
+Afooga, an AI-powered content experimentation factory, enables businesses to generate, test, and distribute content at massive scale from a single hypothesis, automatically optimizing across TikTok, Meta, YouTube, and more. Afooga now leverages Vertex AI and Veo for generative video capabilities.
+
+Anara, a generative AI research assistant, helps users find and understand scientific documents with verifiable AI summaries and insights. It now uses Google Cloud's scalable infrastructure, AI Studio, and Cloud Functions to power its models and data processing for a global user base.
+
+Aptori, an AI security company, detects vulnerabilities in AI-generated code, prioritizes risks, and automates code fixes in real-time. Now, Aptori uses Gemini to analyze code for security weaknesses and generate context-aware fixes, integrating its AI Security Engineer directly into developer workflows.
+
+aSim, an AI-powered mobile app development tool, allows people to quickly generate, share, and discover mini-apps. Users can now instantly generate an app from a prompt using Gemini models and multimodal capabilities from models like Gemini 2.5 Flash Image (i.e. Nano Banana) and Veo 3.
+
+CerebraAI develops AI software for analyzing non-contrast CT scans (NCCT), with a focus on early stroke and cancer detection. It fine-tunes MedGemma on NCCT images and leverages Gemini's few-shot generalization capabilities to rapidly adapt its model for various diagnostic tasks.
+
+Clavata.ai delivers an integrated AI governance and safety platform with multi-modal, real-time evaluations powered by Gemini models. Its suite of tools enable proactive policy enforcement, dynamic debugging, iteration, observability, and problem prevention.
+
+Clip Media built Reclip, a social media application that leverages Google's generative media models like Veo and Imagen to create short, engaging animated videos from real-time audio clips, captured by their proprietary app.
+
+CoVet is an AI assistant built for veterinary professionals, that uses Gemini, Cloud Functions, and other Google Cloud solutions to help veterinary teams automate administrative work, save hours every day, and refocus on what matters most: exceptional patient care.
+
+ColomboAI has built its next-generation social engagement super-app on Google Cloud, integrating search, social, commerce, and news into one experience. The company is now launching CAIRO, its in-app AI Operator agent that can automate actions across modules — from GenAI to feeds, shop, and beyond — powered by Google Cloud AI infrastructure.
+
+Corma is using Google Cloud’s AI infrastructure to train novel, domain-specific foundation models.
+
+Factory, a platform for agent-driven software development, accelerates engineering by unifying context from sources like GitHub and Jira to delegate tasks such as feature development and migrations. It uses Gemini 2.5 Flash for data ingestion and Gemini 2.5 Pro for advanced code and document generation.
+
+Gobii provides AI Agents that automate complex web tasks like forms and workflows directly in the browser. To power these intelligent agents, Gobii is building on Vertex AI and scalable GKE infrastructure.
+
+InstaLILY is using Gemini 2.5 and Vertex AI to power AI agents, called InstaWorkers, that can support sales, service, and operations. 
+
+Inworld AI, an AI platform for builders of consumer applications, uses Google Cloud and Gemini to cost-effectively handle tens of millions of concurrent users with response times measured in milliseconds, meeting strict requirements for quality, cost control, and security.
+
+Krea.ai, a creative suite of AI tools, offers real-time image and video generation and personalized model training for artists and marketers. It integrates with Google Cloud to provide access to advanced models like Veo3 and Gemini 2.5 Flash Image (Nano Banana), enabling users to create high-quality ads, product photos, and game assets.
+
+Lovable, which is building an AI software engineer, uses Vertex AI to deploy and unify its core language models, including Gemini and Anthropic's models. This unique orchestration enables users to create complete, full-stack web applications from plain English descriptions while choosing the model on Google Cloud that best suits their needs.
+
+MaestroQA, a conversation analytics data platform, is now using Gemini to enhance its AI-powered conversation analytics. Gemini helps MaestroQA improve its ability to analyze customer interactions across every channel, providing deeper insights that help businesses boost customer satisfaction and drive growth and retention.
+
+Markups.ai created Agent Marko, an AI contract negotiation agent, which helps turn days-long human legal review into an easier automated process. Users simply email contracts to a designated inbox and receive customized revisions and analysis back within minutes. Gemini 2.5 Pro has enabled Markups.ai to go from handling only first revisions of NDAs to effectively any revision of any contract.
+
+MLtwist, an AI data pipeline services company, processes, transcribes, translates, and labels large, complex data streams for enterprise applications. It now uses Gemini models and AI Studio for transcription and labeling tasks.
+
+MNTN uses Google Cloud to power its connected-TV ad platform which helps users better measure the impact of their TV campaigns. MNTN uses Google’s Security Command Center to ensure users have a secure experience on its platform.  
+
+Mosaic lets users build and run multimodal video-editing AI agents. It uses Gemini 2.5 Pro, Cloud Storage, and Cloud Run to power its platform.
+
+OpenArt, an AI video production company, empowers social media creators and SMBs to turn ideas into videos complete with motion, music, and a narrative arc with Gemini models and Veo3.
+
+OpenEvidence is building its AI-powered medical search platform on Google Cloud, enabling healthcare professionals to access medical information more quickly, safely, and accurately.
+
+Owl.AI, Owl.AI, a sports technology company, delivers AI-powered solutions to professional sports leagues. Their offerings, which include judging and scoring, aim to enhance accuracy, consistency, and eliminate bias. Owl.AI achieves this by leveraging AI models built on Gemini and fine-tuned on Google Cloud to analyze real-time video footage of athletic performances.
+
+Parallel uses Gemini models via Vertex AI to orchestrate “micro agents” that can manage AI search requests more effectively.
+
+Prodia, a generative AI API, offers developers APIs to integrate generative AI into their creative tools. Prodia relies on GPUs on Google Cloud to serve text-to-image and instruct-to-edit models, our low-latency network to ensure scalable, cost-effective performance, Dynamic Workload Scheduler for burst capacity, and models like Veo 3 and Gemini 2.5 Flash Image to power advanced video and image generation.
+
+Provenbase has built its talent recruitment tool for businesses on Google Cloud and is now powering its transformative deep search for talent feature using Google Cloud AI.
+
+Qualia Clear is an agentic system that improves real estate closings by automating manual title and escrow workflows. It uses tool calling, Gemini 2.5 Flash and Gemini 2.5 Pro, and Google Agent Development Kit to process emails and documents and simplify reporting, improving efficiency and customer service.
+
+Rembrand is an AI-powered advertising platform that facilitates in-video product placements for content creators and advertisers on social media and connected TV. Powered by Google Cloud's AI infrastructure, Rembrand enables brands to genuinely connect with audiences without disrupting the content.
+
+Resolve AI, an always-on AI SRE, autonomously investigates incidents and helps run production systems using code, infrastructure, and observability data. With the intelligence and performance of Gemini on Vertex AI, Resolve AI improves MTTR, reliability, and engineering velocity for its customers.
+
+SandboxAQ is scaling its AI-accelerated drug discovery and materials design platform on Google Cloud by training Large Quantitative Models (LQMs) on high-accuracy, physics-based simulations run across massively parallel compute nodes on Google Cloud. SandboxAQ recently made two large-scale datasets, called SAIR and AQCat25, publicly available for building and benchmarking LQMs for structure-aware drug potency prediction and for catalyst design, respectively.
+
+Satlyt, a space compute company, enables in-orbit AI workloads by orchestrating intersatellite communication and routing. It uses Google Kubernetes Engine, Vertex AI, and scalable data infrastructure to deploy AI agents and plans to deploy Google's Gemma models in orbit.
+
+Satisfi Labs will begin using Gemini models to power a new agentic platform for hundreds of customers in sports, entertainment, and tourism. The Satisfi AI platform will offer specialized agents supporting guest experiences, ticketing, on-site safety, and merchandise. Tuned by industry experts, Satisfi AI helps live experience businesses sell more, service faster, and gain real-time insights.
+
+Savvy, an education-focused AI startup, revolutionizes learning by automatically generating flashcards and quizzes from PDFs, notes, videos, and podcasts. As students answer, Savvy uses Gemini to dynamically grade their answers, providing instant feedback and personalized learning.
+
+Skyvern helps companies automate browser-based workflows with AI. Skyvern uses models like Gemini 2.5 Pro and computer vision to interact with websites, enabling it to automate tasks like filling out forms, procuring materials, and downloading invoices. 
+
+Subject.com, an AI-powered platform for grades 6 to 12, blends cinematic storytelling with advanced AI to make learning more engaging. Vertex AI, CloudSQL, and BigQuery power Subject’s teacher assistant tool, Spark, that provides instant feedback, an ‘Explain This’ text simplifier, a 24/7 Homework Helper, and personalized learning tied to student interests.
+
+Tali.ai is a medical AI scribe designed to reduce the administrative burden on clinicians. Integrated with multiple electronic medical record systems across the U.S. and Canada, the company uses Vertex AI and Gemini models to automate clinical note-taking during patient visits and extract key insights.
+
+Tinuiti, a performance marketing agency, used Vertex AI to develop an AI-powered service that develops and optimizes ad copy to increase performance.
+
+Toonsutra, an India-based webcomic platform, is using Google Gemini to go global. By making stories accessible in regional languages and adding Lyria 2 for music, Gemini for voices, and Veo 3 for animation, the company is creating next-generation immersive comics for more audiences.
+
+turbopuffer offers serverless vector and full-text search, helping AI businesses overcome the high costs and complexity of traditional database architectures. ​Its solution, built on Google Cloud infrastructure, has reduced AI database cost by up to 90% for customers, manages more 1 trillion documents, and handles more than 10 million writes and 10,000 queries every second.
+
+Upwork, a human and AI-powered work marketplace, connects businesses with independent professionals. By leveraging the Vertex AI Text-to-Speech API, Upwork now delivers faster, more accurate talent matching and improved hiring efficiency for clients and freelancers.
+
+Visla is an AI-powered video creation platform that helps businesses and creators produce pro videos in minutes. Using Imagen 4, Gemini Flash Image 2.5, Veo 3, and Visla’s AI Video Agent with Avatars, it adapts visuals and narration while automating polished content creation for learning, training, and marketing.
+
+Windsurf, a leader in AI-assisted coding, is using Gemini 2.5 Pro to power its coding assistance IDE, as well as using Gemini models to support integrations with Cognition’s Devin AI.
+
+Zapia AI, a retail technology company, uses AI agents to support millions of users with product discovery, local business searches, and purchase assistance, resulting in over 90% positive user feedback. Its multi-agent orchestration is powered by Gemini to improve agent reasoning, reduce latency, and lower operational costs.
+
+Zefr, a global leader in responsible AI, powers Fortune 500 brand advertising with safety and suitability on platforms like YouTube and TikTok. Using patented “cognitive AI” with Gemini Flash and Vertex AI, Zefr analyzes video, image, audio, and text to deliver trusted, scalable solutions.
+
+Google Cloud’s differentiated AI stack for startups
+Around the world, startups are using Google Cloud at every step of development and every stage of growth. They’re using our AI and infrastructure to train and serve models, to handle multimodal requests, to build and scale applications, to develop AI agents, to manage underlying data, to support developers, to reach customers through our marketplace, and more.
+
+Whatever the use case, our full AI-optimized tech stack provides startups with leading technology and choice at every layer, including:
+
+Highly-performant first-party chips (TPUs) and third-party chips (GPUs) for training and inferencing, as well as the ability to move workloads between the two.
+
+AI Studio, a fast way for startups to get started building applications with our models.
+
+Our unified AI development platform, Vertex AI.
+
+More than 200 AI foundation models, including our leading multimodal models like Nano Banana and Veo 3, and popular third-party models like Anthropic’s Claude and the open-source Llama and Mystral.
+
+Developer tools like Gemini CLI, which provides access to Gemini directly within the coding terminal, streamlining workflows and boosting productivity.
+
+Products like BigQuery and AlloyDB to handle an organization’s underlying data.
+
+Security operations and threat intelligence tools to help startups secure their applications.
+
+Services like Google Kubernetes Engine, Cloud Storage, and CloudSQL to quickly scale workloads and applications up and down.
+
+If you can dream it, then you can build it, launch it, scale it, and sell it with Google Cloud.
+
+More programs, initiatives, and product access for startups
+One of the biggest challenges to starting up isn’t having the idea or the right technology — it’s access to the resources to make it happen and expertise to help tackle any challenges that arise.
+
+Google Cloud provides a unique set of resources and benefits for startups through our Google for Startups Cloud Program, including cloud credits that are applicable across all Google Cloud products and AI models — including those from our partners like Anthropic and Meta. The program also offers mentorship and go-to-market programs that help startups reach customers, and even on-the-ground engineers who engage with and support startups as they build.
+
+We also engage deeply with the startup community through our global series of Accelerators and our partnerships with top venture capital firms, incubators, and community organizations — making it easier than ever for startups to access Google Cloud’s unique technology and our extensive set of resources to help startups build and market their products.
+
+For example, AI startups who work with firms like Lightspeed, Sequoia, or Y Combinator all have preferred access to our Google for Startups Cloud Program — supercharging their work with up to $350,000 in cloud credits along with mentorship and engineering support.
+
+We’re committed to making it as easy as possible for startups to get building with Google Cloud AI. If you’re interested in our technology and want to get started, head to Google AI Studio or our Google for Startups Cloud Program and let’s get building together!
