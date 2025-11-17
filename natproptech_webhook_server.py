@@ -55,11 +55,11 @@ def initialize_system():
         
         # Inicializar MiniMax Orchestrator
         minimax_orchestrator = MiniMaxSalesOrchestrator(
-            agent=natepproptech_agent,
-            configuration={
+            minimax_agent_config={
                 "minimax_token": config["minimax"]["agent_token"],
                 "optimization_level": "aggressive"
-            }
+            },
+            agent_configs={}
         )
         
         logger.info("✅ Sistema NatPropTech inicializado com sucesso!")
