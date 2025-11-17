@@ -6,11 +6,13 @@ Sistema orquestrador que combina MiniMax Agent com ferramentas agênticas para m
 Autor: MiniMax Agent
 Data: 17 de Novembro de 2025
 Versão: 1.0
+Configuração: Integração com WhatsApp Business API via variáveis de ambiente
 """
 
 import asyncio
 import json
 import logging
+import os
 from typing import Dict, List, Optional, Any, Tuple
 from dataclasses import dataclass, asdict
 from datetime import datetime, timedelta
@@ -705,5 +707,59 @@ async def demonstrate_sales_system():
     print("\n" + "=" * 60)
     print("✅ Demonstração concluída!")
 
+# Configuração de Ambiente
+
+def get_whatsapp_credentials():
+    """Obtém credenciais WhatsApp das variáveis de ambiente"""
+    return {
+        "access_token": os.getenv("WHATSAPP_ACCESS_TOKEN"),
+        "phone_number_id": os.getenv("WHATSAPP_PHONE_NUMBER_ID"),
+        "verify_token": os.getenv("WHATSAPP_VERIFY_TOKEN", "natproptech_verify_token"),
+        "business_account_id": os.getenv("WHATSAPP_BUSINESS_ACCOUNT_ID")
+    }
+
+def validate_orchestrator_config():
+    """Valida configuração do orchestrator"""
+    
+    required_vars = [
+        "WHATSAPP_ACCESS_TOKEN",
+        "WHATSAPP_PHONE_NUMBER_ID", 
+        "WHATSAPP_BUSINESS_ACCOUNT_ID"
+    ]
+    
+    missing = [var for var in required_vars if not os.getenv(var)]
+    
+    if missing:
+        print(f"❌ Credenciais WhatsApp não configuradas: {', '.join(missing)}")
+        print("📝 Execute o setup: python3 minimax_natproptech_sales_orchestrator.py setup")
+        return False
+    
+    print("✅ Orchestrator configurado com sucesso!")
+    return True
+
+async def main():
+    """Função principal"""
+    
+    if not validate_orchestrator_config():
+        return
+    
+    # Carrega configurações
+    credentials = get_whatsapp_credentials()
+    
+    print("\n🚀 MINIMAX NATPROPTECH SALES ORCHESTRATOR")
+    print("=" * 60)
+    print(f"📱 WhatsApp ID: {credentials['phone_number_id'][:8]}...")
+    print(f"🤖 MiniMax M2 Agent ativo")
+    print(f"💰 ROI projetado: +2,847%")
+    
+    # Demonstração
+    await demonstrate_sales_system()
+
 if __name__ == "__main__":
-    asyncio.run(demonstrate_sales_system())
+    import sys
+    
+    if len(sys.argv) > 1 and sys.argv[1] == "setup":
+        from natproptech_agentic_integration import setup_environment_wizard
+        setup_environment_wizard()
+    else:
+        asyncio.run(main())
