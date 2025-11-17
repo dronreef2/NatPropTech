@@ -26,6 +26,8 @@ from enum import Enum
 
 # Importar sistemas criados
 from swarm_intelligence_system import MiniMaxSwarmIntelligence, TaskComplexity
+from minimax_native_system import MiniMaxM2Agent
+from minimax_agent_system import MiniMaxAgentSystem
 
 # Configurar logging
 logging.basicConfig(level=logging.INFO)
