@@ -16,7 +16,7 @@ from datetime import datetime
 from flask import Flask, request, jsonify
 from dotenv import load_dotenv
 from natproptech_agentic_integration import NatPropTechAgent, validate_environment, load_environment_config
-from minimax_natproptech_sales_orchestrator import MinimaxSalesOrchestrator
+from minimax_natproptech_sales_orchestrator import MiniMaxSalesOrchestrator
 
 # Carregar variáveis de ambiente
 load_dotenv()
@@ -54,7 +54,7 @@ def initialize_system():
         )
         
         # Inicializar MiniMax Orchestrator
-        minimax_orchestrator = MinimaxSalesOrchestrator(
+        minimax_orchestrator = MiniMaxSalesOrchestrator(
             agent=natepproptech_agent,
             configuration={
                 "minimax_token": config["minimax"]["agent_token"],
